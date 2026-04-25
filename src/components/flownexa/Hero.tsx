@@ -35,14 +35,14 @@ export function Hero() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#contact"
+                href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3.5 font-semibold text-white shadow-lg shadow-primary/40 transition-all hover:shadow-primary/70 hover:scale-105"
               >
                 Start a Project
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#portfolio"
+                href="/portfolio"
                 className="group inline-flex items-center gap-2 rounded-full border border-border glass px-7 py-3.5 font-semibold text-foreground transition-all hover:border-accent/50 hover:bg-accent/5"
               >
                 <Play className="h-4 w-4" />

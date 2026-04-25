@@ -17,13 +17,62 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { title: "NovaChat AI", tag: "Conversational AI", desc: "Multilingual support bot reducing ticket volume by 62% for a fintech.", gradient: "from-primary/40 to-accent/40" },
-  { title: "PulseFlow", tag: "Workflow Automation", desc: "Autonomous agent orchestrating 14 SaaS tools for an e-commerce ops team.", gradient: "from-accent/40 to-primary/40" },
-  { title: "InsightLens", tag: "AI Analytics", desc: "Natural-language BI dashboard for a logistics company tracking 2M+ events/day.", gradient: "from-primary/30 to-accent/50" },
-  { title: "VoxAssist", tag: "Voice AI", desc: "Real-time voice agent handling 80% of inbound calls for a healthtech startup.", gradient: "from-accent/50 to-primary/30" },
-  { title: "DocuMind", tag: "RAG / LLM", desc: "Document-grounded AI for a legal firm answering on 50k+ contracts.", gradient: "from-primary/40 to-accent/30" },
-  { title: "RetailGenie", tag: "Recommendation AI", desc: "Personalization engine lifting conversion by 28% for a DTC brand.", gradient: "from-accent/30 to-primary/40" },
+  { 
+    title: "AI Resume Screener & Job Matcher", 
+    tag: "NLP / ML", 
+    desc: "AI system that classifies resumes, extracts skills using NER, and matches candidates with relevant job roles.", 
+    gradient: "from-primary/40 to-accent/40" 
+  },
+  { 
+    title: "SalesMint", 
+    tag: "AI POS System", 
+    desc: "AI-powered POS and billing platform with inventory, sales tracking, and intelligent business insights.", 
+    gradient: "from-accent/40 to-primary/40" 
+  },
+  { 
+    title: "AIPHA", 
+    tag: "AI Healthcare Assistant", 
+    desc: "AI-based personal health assistant for tracking daily health activities, reminders, and intelligent recommendations.", 
+    gradient: "from-primary/30 to-accent/50" 
+  },
+  { 
+    title: "AI Virtual Fashion Stylist", 
+    tag: "Computer Vision", 
+    desc: "Fashion recommendation system analyzing clothing items using computer vision to suggest personalized outfits.", 
+    gradient: "from-accent/50 to-primary/30" 
+  },
+  { 
+    title: "Clinify", 
+    tag: "Automation / n8n", 
+    desc: "Workflow automation platform for clinics integrating appointment handling, notifications, and AI-driven assistance.", 
+    gradient: "from-primary/40 to-accent/30" 
+  },
+  { 
+    title: "Ticket Automation", 
+    tag: "AI Automation", 
+    desc: "AI-powered ticket routing and automation workflow using n8n to reduce manual support handling.", 
+    gradient: "from-accent/30 to-primary/40" 
+  },
+  { 
+    title: "MediTranscribe", 
+    tag: "Speech-to-Text AI", 
+    desc: "Doctor-patient conversation transcription system converting medical discussions into structured notes.", 
+    gradient: "from-primary/40 to-accent/40" 
+  },
+  { 
+    title: "AuditX", 
+    tag: "Call Auditing AI", 
+    desc: "AI call auditing system analyzing conversations for quality assurance, compliance, and insights.", 
+    gradient: "from-accent/40 to-primary/40" 
+  },
+  { 
+    title: "NeuroSymbolic VQA", 
+    tag: "Neuro-Symbolic AI", 
+    desc: "Visual question answering system combining deep learning perception with symbolic reasoning.", 
+    gradient: "from-primary/30 to-accent/50" 
+  }
 ];
+
 
 function PortfolioPage() {
   return (
@@ -36,7 +85,7 @@ function PortfolioPage() {
           animate={{ opacity: 1, y: 0 }}
           className="font-display text-5xl font-bold md:text-6xl"
         >
-          Our <span className="text-gradient">Portfolio</span>
+          Our <span className="text-gradient">Products</span>
         </motion.h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           A selection of AI products and automations we've crafted for ambitious teams.

@@ -7,8 +7,9 @@ const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
+  { label: "Our Products", to: "/portfolio" },
   { label: "Contact", to: "/contact" },
+  { label: "Team", to: "/team" }
 ] as const;
 
 export function Navbar() {
@@ -35,9 +36,12 @@ export function Navbar() {
           scrolled ? "glass-strong" : "glass"
         }`}>
           <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold tracking-wider">
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent">
-              <Sparkles className="h-5 w-5 text-white" />
-            </span>
+              <img 
+                src="FlowNexaLogo-removebg-preview (1).png" 
+                alt="FlowNexa Logo"
+                className="h-9 w-9 rounded-lg object-contain"
+              />
+
             <span className="text-gradient">FlowNexa</span>
           </Link>
 

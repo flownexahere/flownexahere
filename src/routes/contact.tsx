@@ -69,10 +69,10 @@ function ContactPage() {
               </div>
               <div>
                 <div className="font-semibold">Email</div>
-                <div className="text-sm text-muted-foreground">hello@flownexa.ai</div>
+                <div className="text-sm text-muted-foreground">flownexahere@gmail.com</div>
               </div>
             </a>
-            <a href="https://wa.me/10000000000" className="glass-strong flex items-start gap-4 rounded-2xl p-6 transition-all hover:border-accent/50">
+            <a href="https://wa.me/03174100973" className="glass-strong flex items-start gap-4 rounded-2xl p-6 transition-all hover:border-accent/50">
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/30">
                 <MessageCircle className="h-5 w-5 text-accent" />
               </div>
