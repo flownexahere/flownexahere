@@ -15,6 +15,12 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioTicketAutomationRouteImport } from './routes/portfolio.ticket-automation'
+import { Route as PortfolioSalesmintRouteImport } from './routes/portfolio.salesmint'
+import { Route as PortfolioResumeScreenerRouteImport } from './routes/portfolio.resume-screener'
+import { Route as PortfolioFashionStylistRouteImport } from './routes/portfolio.fashion-stylist'
+import { Route as PortfolioClinifyRouteImport } from './routes/portfolio.clinify'
+import { Route as PortfolioAiphaRouteImport } from './routes/portfolio.aipha'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
@@ -46,37 +52,110 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioTicketAutomationRoute =
+  PortfolioTicketAutomationRouteImport.update({
+    id: '/ticket-automation',
+    path: '/ticket-automation',
+    getParentRoute: () => PortfolioRoute,
+  } as any)
+const PortfolioSalesmintRoute = PortfolioSalesmintRouteImport.update({
+  id: '/salesmint',
+  path: '/salesmint',
+  getParentRoute: () => PortfolioRoute,
+} as any)
+const PortfolioResumeScreenerRoute = PortfolioResumeScreenerRouteImport.update({
+  id: '/resume-screener',
+  path: '/resume-screener',
+  getParentRoute: () => PortfolioRoute,
+} as any)
+const PortfolioFashionStylistRoute = PortfolioFashionStylistRouteImport.update({
+  id: '/fashion-stylist',
+  path: '/fashion-stylist',
+  getParentRoute: () => PortfolioRoute,
+} as any)
+const PortfolioClinifyRoute = PortfolioClinifyRouteImport.update({
+  id: '/clinify',
+  path: '/clinify',
+  getParentRoute: () => PortfolioRoute,
+} as any)
+const PortfolioAiphaRoute = PortfolioAiphaRouteImport.update({
+  id: '/aipha',
+  path: '/aipha',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
+  '/portfolio/aipha': typeof PortfolioAiphaRoute
+  '/portfolio/clinify': typeof PortfolioClinifyRoute
+  '/portfolio/fashion-stylist': typeof PortfolioFashionStylistRoute
+  '/portfolio/resume-screener': typeof PortfolioResumeScreenerRoute
+  '/portfolio/salesmint': typeof PortfolioSalesmintRoute
+  '/portfolio/ticket-automation': typeof PortfolioTicketAutomationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
+  '/portfolio/aipha': typeof PortfolioAiphaRoute
+  '/portfolio/clinify': typeof PortfolioClinifyRoute
+  '/portfolio/fashion-stylist': typeof PortfolioFashionStylistRoute
+  '/portfolio/resume-screener': typeof PortfolioResumeScreenerRoute
+  '/portfolio/salesmint': typeof PortfolioSalesmintRoute
+  '/portfolio/ticket-automation': typeof PortfolioTicketAutomationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
   '/services': typeof ServicesRoute
   '/team': typeof TeamRoute
+  '/portfolio/aipha': typeof PortfolioAiphaRoute
+  '/portfolio/clinify': typeof PortfolioClinifyRoute
+  '/portfolio/fashion-stylist': typeof PortfolioFashionStylistRoute
+  '/portfolio/resume-screener': typeof PortfolioResumeScreenerRoute
+  '/portfolio/salesmint': typeof PortfolioSalesmintRoute
+  '/portfolio/ticket-automation': typeof PortfolioTicketAutomationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/portfolio' | '/services' | '/team'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/portfolio'
+    | '/services'
+    | '/team'
+    | '/portfolio/aipha'
+    | '/portfolio/clinify'
+    | '/portfolio/fashion-stylist'
+    | '/portfolio/resume-screener'
+    | '/portfolio/salesmint'
+    | '/portfolio/ticket-automation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/portfolio' | '/services' | '/team'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/portfolio'
+    | '/services'
+    | '/team'
+    | '/portfolio/aipha'
+    | '/portfolio/clinify'
+    | '/portfolio/fashion-stylist'
+    | '/portfolio/resume-screener'
+    | '/portfolio/salesmint'
+    | '/portfolio/ticket-automation'
   id:
     | '__root__'
     | '/'
@@ -85,13 +164,19 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/services'
     | '/team'
+    | '/portfolio/aipha'
+    | '/portfolio/clinify'
+    | '/portfolio/fashion-stylist'
+    | '/portfolio/resume-screener'
+    | '/portfolio/salesmint'
+    | '/portfolio/ticket-automation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  PortfolioRoute: typeof PortfolioRoute
+  PortfolioRoute: typeof PortfolioRouteWithChildren
   ServicesRoute: typeof ServicesRoute
   TeamRoute: typeof TeamRoute
 }
@@ -140,14 +225,78 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/ticket-automation': {
+      id: '/portfolio/ticket-automation'
+      path: '/ticket-automation'
+      fullPath: '/portfolio/ticket-automation'
+      preLoaderRoute: typeof PortfolioTicketAutomationRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/salesmint': {
+      id: '/portfolio/salesmint'
+      path: '/salesmint'
+      fullPath: '/portfolio/salesmint'
+      preLoaderRoute: typeof PortfolioSalesmintRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/resume-screener': {
+      id: '/portfolio/resume-screener'
+      path: '/resume-screener'
+      fullPath: '/portfolio/resume-screener'
+      preLoaderRoute: typeof PortfolioResumeScreenerRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/fashion-stylist': {
+      id: '/portfolio/fashion-stylist'
+      path: '/fashion-stylist'
+      fullPath: '/portfolio/fashion-stylist'
+      preLoaderRoute: typeof PortfolioFashionStylistRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/clinify': {
+      id: '/portfolio/clinify'
+      path: '/clinify'
+      fullPath: '/portfolio/clinify'
+      preLoaderRoute: typeof PortfolioClinifyRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
+    '/portfolio/aipha': {
+      id: '/portfolio/aipha'
+      path: '/aipha'
+      fullPath: '/portfolio/aipha'
+      preLoaderRoute: typeof PortfolioAiphaRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
   }
 }
+
+interface PortfolioRouteChildren {
+  PortfolioAiphaRoute: typeof PortfolioAiphaRoute
+  PortfolioClinifyRoute: typeof PortfolioClinifyRoute
+  PortfolioFashionStylistRoute: typeof PortfolioFashionStylistRoute
+  PortfolioResumeScreenerRoute: typeof PortfolioResumeScreenerRoute
+  PortfolioSalesmintRoute: typeof PortfolioSalesmintRoute
+  PortfolioTicketAutomationRoute: typeof PortfolioTicketAutomationRoute
+}
+
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioAiphaRoute: PortfolioAiphaRoute,
+  PortfolioClinifyRoute: PortfolioClinifyRoute,
+  PortfolioFashionStylistRoute: PortfolioFashionStylistRoute,
+  PortfolioResumeScreenerRoute: PortfolioResumeScreenerRoute,
+  PortfolioSalesmintRoute: PortfolioSalesmintRoute,
+  PortfolioTicketAutomationRoute: PortfolioTicketAutomationRoute,
+}
+
+const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
+  PortfolioRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  PortfolioRoute: PortfolioRoute,
+  PortfolioRoute: PortfolioRouteWithChildren,
   ServicesRoute: ServicesRoute,
   TeamRoute: TeamRoute,
 }
